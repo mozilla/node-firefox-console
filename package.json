@@ -1,0 +1,42 @@
+{
+  "name": "node-firefox-console",
+  "version": "1.0.0",
+  "description": "Access the JS console of a Firefox instance",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "gulp",
+    "test": "gulp test"
+  },
+  "keywords": [
+    "firefox",
+    "developer tools",
+    "b2g",
+    "firefox os",
+    "fxos",
+    "webapps"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mozilla/node-firefox-console.git"
+  },
+  "author": "Mozilla (https://mozilla.org/)",
+  "contributors": [
+    "Les Orchard <me@lmorchard.com> (http://lmorchard.com)"
+  ],
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/mozilla/node-firefox-console/issues"
+  },
+  "homepage": "https://github.com/mozilla/node-firefox-console/",
+  "dependencies": {
+    "es6-promise": "^2.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "mocha": "^1.21.4",
+    "mockery": "^1.4.0",
+    "node-firefox-build-tools": "^0.2.0",
+    "nodemock": "^0.3.4",
+    "should": "^4.0.4"
+  }
+}
