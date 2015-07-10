@@ -30,7 +30,46 @@ npm install node-firefox-console
 
 ## Usage
 
-Docs to be written.
+See `examples/usage.js` for a fuller example, but in brief:
+
+```javascript
+var firefox = {
+  console: require('node-firefox-console')
+};
+
+firefox.console(options).then(function(appConsole) {
+  // appConsole instance can be used to interact with app
+}).catch(function(error) {
+  // an error will occur if the identified app is not installed and running
+});
+```
+
+where `options` is a plain Object with the following expected properties:
+
+* `client`: a client connected to Firefox, e.g. created via `node-firefox-connect`
+
+* `manifest`: an Object parsed from an [App manifest](https://developer.mozilla.org/en-US/Apps/Build/Manifest), where the `name` property is used to find an installed and running app.
+
+The `appConsole` instance offers the following methods, each of which returns a
+Promise:
+
+* `evaluateJS(expr)`: send a string (`expr`) containing a JavaScript expression
+  to the app's console
+
+* `getCachedLogs()`: fetch any console log messages cached and waiting to be read
+
+* `clearCachedLogs()`: clear cached console log messages - `getCachedLogs()`
+  does not do this automatically.
+
+* `getLogStream(options)`: build a [stream][] to handle live console log
+  messages. `options` is a plain Object expecting two optional boolean
+  properties: 
+
+  * `logs` (default: `true`): whether to stream plain log messages 
+
+  * `errors` (default: `false`): whether to stream error log messages 
+
+[stream]: https://nodejs.org/api/stream.html
 
 ## Running the tests
 
